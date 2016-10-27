@@ -36,7 +36,8 @@ module.exports = {
             template: __dirname + '/src/index.html',
         }),
         new CopyWebpackPlugin([
-            { from: 'res/favicon/' }
+            { from: 'res/favicon/' },
+            { from: 'res/CNAME' },
         ]),
     ]
 }
