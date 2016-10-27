@@ -5,6 +5,7 @@ import intersperse from 'intersperse'
 
 const b = block('countdown')
 
+const TARGET_DATE = new Date('11/19/2016 8:00 PM')
 const SECONDS = 1000
 const MINUTES = 60
 const HOURS   = 60
@@ -21,41 +22,37 @@ class Countdown extends React.Component {
     }
 
     update() {
-        this.setState({times: this.times()})
-    }
-
-    times() {
-        let duration = new Date('11/19/2016 8:00 PM') - Date.now()
+        const duration = TARGET_DATE - Date.now()
 
         let seconds = Math.floor(duration / SECONDS)
         let minutes = Math.floor(seconds / MINUTES)
         let hours = Math.floor(minutes / HOURS)
         let days = Math.floor(hours / DAYS)
 
-        let hours2 = hours - (days * DAYS)
-        let minutes2 = minutes - (hours * HOURS)
-        let seconds2 = seconds - (minutes * MINUTES)
+        seconds -= minutes * MINUTES
+        minutes -= hours * HOURS
+        hours   -= days * DAYS
 
-        return [
+        const times = [
             days,
-            hours2,
-            minutes2,
-            seconds2
+            hours,
+            minutes,
+            seconds,
         ].map(v => sprintf('%02d', v))
+
+        this.setState({times})
     }
 
     render() {
         return <div className={b}>
             {
-                intersperse(
-                    this.state.times.map((t, i) => {
-                        return <span>
-                            <span className={b('digit', {left: true })}>{t[0]}</span>
-                            <span className={b('digit', {right: true})}>{t[1]}</span>
-                        </span>
-                    }),
-                    <span className={b('divider')}>:</span>
-                )
+                this.state.times.map((t, i) => {
+                    // Split the time strings into digits to space evenly
+                    return <span className={b('group')} key={i}>
+                        <span className={b('digit', {left: true })}>{t[0]}</span>
+                        <span className={b('digit', {right: true})}>{t[1]}</span>
+                    </span>
+                })
             }
         </div>
     }

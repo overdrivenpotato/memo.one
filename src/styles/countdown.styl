@@ -12,6 +12,12 @@
         &--right
             text-align left
 
-    &__divider
-        bottom 0.05em
-        position relative
+    // Seperate the digit groups
+    &__group
+        &:last-child:after
+            display: none
+
+        &:after
+            content: ':'
+            bottom 0.05em
+            position relative

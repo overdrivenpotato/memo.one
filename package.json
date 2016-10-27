@@ -1,6 +1,11 @@
 {
   "name": "memo",
   "version": "1.0.0",
+  "scripts": {
+    "deploy": "yarn build; gh-pages -d build",
+    "build": "rm -r build; NODE_ENV=production yarn webpack -- -om",
+    "watch": "yarn webpack -- --watch"
+  },
   "dependencies": {
     "babel-core": "^6.18.0",
     "babel-loader": "^6.2.5",
