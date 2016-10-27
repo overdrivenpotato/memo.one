@@ -1,6 +1,9 @@
 import React from 'react'
+import block from 'bem-cn'
 import Countdown from './countdown'
 import Number from './number'
+
+const b = block('app')
 
 const numbers = [
     "416 453 3812",
@@ -9,12 +12,12 @@ const numbers = [
 ]
 
 const App = () => (
-    <div className="app">
-        <h1 className="app__header">MEMO</h1>
-        <div className="app__countdown">
+    <div className={b}>
+        <h1 className={b('header')}>MEMO</h1>
+        <div className={b('countdown')}>
             <Countdown />
         </div>
-        <div className="app__numbers">
+        <div className={b('numbers')}>
             {
                 numbers.map((num, i) => <Number key={i} string={num} />)
             }

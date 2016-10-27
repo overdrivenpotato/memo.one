@@ -1,6 +1,9 @@
 import React from 'react'
+import block from 'bem-cn'
 import { sprintf } from 'sprintf-js'
 import intersperse from 'intersperse'
+
+const b = block('countdown')
 
 const SECONDS = 1000
 const MINUTES = 60
@@ -42,16 +45,16 @@ class Countdown extends React.Component {
     }
 
     render() {
-        return <div className="countdown">
+        return <div className={b}>
             {
                 intersperse(
                     this.state.times.map((t, i) => {
                         return <span>
-                            <span className="countdown__digit countdown__digit--left">{t[0]}</span>
-                            <span className="countdown__digit countdown__digit--right">{t[1]}</span>
+                            <span className={b('digit', {left: true })}>{t[0]}</span>
+                            <span className={b('digit', {right: true})}>{t[1]}</span>
                         </span>
                     }),
-                    <span className="countdown__divider">:</span>
+                    <span className={b('divider')}>:</span>
                 )
             }
         </div>
