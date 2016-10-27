@@ -1,0 +1,10 @@
+node_modules
+local
+build
+
+*.DS_Store
+
+### Vim ###
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]

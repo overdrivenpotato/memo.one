@@ -1,0 +1,18 @@
+.number
+    display flex
+    width 5em
+    justify-content space-around
+
+    text-decoration initial
+    color white
+    font-size 0.5em
+
+    transition font-size resize-speed
+
+    @media (max-width numbers-cutoff)
+        font-size 0.7em
+
+    &__digit
+        display inline-block
+        text-align center
+        padding 0 0.5em

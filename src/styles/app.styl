@@ -1,0 +1,65 @@
+slide = 0.03em
+slide-duration = 1s
+resize-speed = 0.2s
+
+html, body, #app, .app
+    min-height 100vh
+    background-color black
+
+.app
+    cursor default
+    user-select none
+
+
+    display flex
+    flex-direction column
+    align-items center
+    justify-content center
+
+    color white
+
+    font-family 'Bebas Neue'
+    font-size 5em
+    transition font-size resize-speed
+
+    @media (max-width mobile-cutoff)
+        font-size 3.5em
+
+    transition font-size resize-speed
+    animation app 0.5s
+
+    &__header
+        margin-top 0.2em
+        font-size 3em
+        font-weight initial
+        animation top slide-duration
+
+    &__countdown, &__numbers
+        animation bottom slide-duration
+
+    &__numbers
+        padding-top 0.25em
+        transition padding-top resize-speed
+        @media (max-width mobile-cutoff)
+            padding-top 0.5em
+
+        padding-bottom 0.5em
+
+@keyframes app
+    0%
+        opacity 0
+
+    100%
+        opacity 1
+
+@keyframes top
+    0%
+        transform translate3d(0, -slide, 0)
+    100%
+        transform translate3d(0,0,0)
+
+@keyframes bottom
+    0%
+        transform translate3d(0, 2 * slide, 0)
+    100%
+        transform translate3d(0,0,0)
