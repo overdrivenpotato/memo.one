@@ -3,10 +3,9 @@ import Countdown from './countdown'
 import Number from './number'
 
 const numbers = [
-    "416 903 4823",
-    "647 293 1294",
-    "647 057 6335",
-    "647 914 8543",
+    "416 453 3812",
+    "647 123 4567",
+    "416 123 4567",
 ]
 
 const App = () => (

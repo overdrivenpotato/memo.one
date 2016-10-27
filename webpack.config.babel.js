@@ -1,6 +1,7 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import autoprefixer from 'autoprefixer'
+import webpack from 'webpack'
 
 module.exports = {
     entry: ['./src/main.styl', './src/main.jsx'],
@@ -39,5 +40,10 @@ module.exports = {
             { from: 'res/favicon/' },
             { from: 'res/CNAME' },
         ]),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        }),
     ]
 }
