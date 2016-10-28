@@ -5,12 +5,7 @@
 
     text-decoration initial
     color white
-    font-size 0.5em
-
-    transition font-size resize-speed
-
-    @media (max-width numbers-cutoff)
-        font-size 0.7em
+    font-size 0.65em
 
     &__digit
         display inline-block
@@ -18,6 +13,7 @@
         padding 0 0.5em
 
     &__group
+        line-height 1em
         width 33%
 
         &:nth-child(2)
