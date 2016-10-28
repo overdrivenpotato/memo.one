@@ -2,7 +2,7 @@
   "name": "memo",
   "version": "1.0.0",
   "scripts": {
-    "deploy": "yarn build; $(yarn bin)/gh-pages --help",
+    "deploy": "yarn build; $(yarn bin)/gh-pages -d build",
     "build": "rm -r build; NODE_ENV=production $(yarn bin)/webpack -om",
     "watch": "$(yarn bin)/webpack --watch"
   },
